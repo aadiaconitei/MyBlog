@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findAll = void 0;
+exports.findOne = exports.findAll = void 0;
 const db_1 = require("../db");
 // Get all users
 const findAll = (callback) => {
@@ -25,3 +25,21 @@ const findAll = (callback) => {
     });
 };
 exports.findAll = findAll;
+const findOne = (contactId, callback) => {
+    const queryString = `SELECT * FROM contact WHERE id=?`;
+    db_1.db.query(queryString, contactId, (err, result) => {
+        if (err) {
+            callback(err);
+        }
+        const row = result[0];
+        const message = {
+            id: row.id,
+            nume: row.nume,
+            prenume: row.prenume,
+            email: row.email,
+            mesaj: row.mesaj,
+        };
+        callback(null, message);
+    });
+};
+exports.findOne = findOne;

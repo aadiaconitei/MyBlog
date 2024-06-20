@@ -1,0 +1,5 @@
+{
+    "SERVER_URL": "http://localhost:3002/users/",
+    "SERVER_POST_URL": "http://localhost:3002/posts/",
+    "SERVER_CONTACT_URL": "http://localhost:3002/contact/"
+}

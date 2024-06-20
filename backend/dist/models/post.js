@@ -31,7 +31,7 @@ exports.findAll = findAll;
 const findLast3 = (callback) => {
     const queryString = `SELECT p.id,p.titlu,p.continut,p.poza, p.user_id,
   p.categorie_id, p.dataadaugare, c.nume 
-  FROM posts p INNER JOIN categories c on p.categorie_id= c.id ORDER BY p.id DESC LIMIT 3`;
+  FROM posts p INNER JOIN categories c on p.categorie_id= c.id ORDER BY p.id DESC LIMIT 6`;
     db_1.db.query(queryString, (err, result) => {
         if (err) {
             callback(err);
